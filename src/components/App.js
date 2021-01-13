@@ -7,7 +7,7 @@ import Login from './Login';
 import ForgotPassword from './ForgotPassword';
 import UpdateProfile from './UpdateProfile';
 import PrivateRoute from './PrivateRoute';
-
+import '../index.css';
 
 function App() {
   return (

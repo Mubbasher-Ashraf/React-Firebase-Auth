@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Image, Alert } from 'react-bootstrap';
+import ProgressBar from './ProgressBar';
 import image from '../logo192 copy.png';
 
 function UploadFile() {
@@ -29,6 +30,7 @@ function UploadFile() {
                     onChange={changeHandler}
                 />
                 { file && <div>{ file.name }</div> }
+                {file && <ProgressBar file={file} setFile={setFile} /> }
             </div>
             { error && <Alert variant="danger">{error}</Alert> }
         </>
