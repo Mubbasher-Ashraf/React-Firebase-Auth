@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
-import FileUpload from './UploadFile';
 import { Link, useHistory } from "react-router-dom"
 
 export default function UpdateProfile() {
@@ -48,7 +47,6 @@ export default function UpdateProfile() {
         <Card.Body>
           <h2 className="text-center mb-4">Update Profile</h2>
           {error && <Alert variant="danger">{error}</Alert>}
-          <FileUpload />
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>

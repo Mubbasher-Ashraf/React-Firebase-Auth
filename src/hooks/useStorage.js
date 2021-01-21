@@ -16,8 +16,8 @@ const useStorage = (file) => {
         }, (err) => {
                 setError(err);
         }, async () => {
-            const url = storageRef.getDownloadURL();
-            // await collectionRef.doc('URL').set({ url, createdAt: Date.now });
+                const url = await storageRef.getDownloadURL();
+                collectionRef.add({ imageUrl: url, createdAt: new Date().toISOString() });
             setUrl(url);
         });
     }, [file]);

@@ -9,7 +9,6 @@ const ProgressBar = ({ file, setFile }) => {
             setFile(null);
         }
     }, [url, setFile]);
-    
     return (
         <div className="progress-bar" style={{ width: progress + '%' }}></div>
     )

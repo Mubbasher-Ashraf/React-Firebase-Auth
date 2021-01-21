@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import { Image, Alert } from 'react-bootstrap';
+import ImageGrid from './ImageGrid';
 import ProgressBar from './ProgressBar';
+import Modal from './Modal';
 import image from '../logo192 copy.png';
 
-function UploadFile() {
+const UploadFile = () => {
     const [file, setFile] = useState(null);
+    const [selected, selectedImage] = useState(null);
     const [error, setError] = useState(false);
     const validTypes = ['image/png', 'image/jpg', 'image/jpeg'];
 
@@ -21,19 +24,20 @@ function UploadFile() {
 
     return (
         <>
-            <div style={{ display: 'grid', placeItems: 'center'}}>
-                <Image src={ image } rounded />
+            <div className="cf" style={{ display: 'grid', placeItems: 'center' }}>
+                <Image src={image} rounded />
                 <input
-                    style={{ position: 'sticky', left: '50%' }}
                     type="file"
                     placeholder="Choose File"
                     onChange={changeHandler}
                 />
-                { file && <div>{ file.name }</div> }
-                {file && <ProgressBar file={file} setFile={setFile} /> }
+                {file && <div>{file.name}</div>}
+                {file && <ProgressBar file={file} setFile={setFile} />}
             </div>
-            { error && <Alert variant="danger">{error}</Alert> }
+            { error && <Alert variant="danger">{error}</Alert>}
+            <ImageGrid selectedImage={selectedImage} />
+            { selected && <Modal selected={selected} selectedImage={selectedImage} />}
         </>
-    )
-}
+    );
+};
 export default UploadFile;
